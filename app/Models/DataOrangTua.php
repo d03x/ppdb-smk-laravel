@@ -8,23 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class DataOrangTua extends Model
 {
-    use HasFactory,HasUuids;
+    use HasFactory;
+    use HasUuids;
     protected $fillable = [
         'pendaftaran_id',
         'type',
-        'peserta_didik_id',
-        'nama_ayah',
-        'nama_ibu',
-        'nik_ayah',
-        'nik_ibu',
-        'pekerjaan_ayah',
-        'pekerjaan_ibu',
-        'pendidikan_terakhir_ayah',
-        'pendidikan_terakhir_ibu',
+        'nama',
+        'nik',
+        'pekerjaan',
+        'penghasilan',
+        'pendidikan_terakhir',
         'alamat',
         'no_telepon',
     ];
-    public function pendaftaran(){
+
+    public function scopeGetAyah($query)
+    {
+        return $query->where('type', 'ayah');
+    }
+
+    public function pendaftaran()
+    {
         return $this->belongsTo(Pendaftaran::class);
     }
 }
