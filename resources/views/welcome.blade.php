@@ -61,7 +61,7 @@
                                     @method('POST')
                                     @csrf
                                     <input type="text" hidden name="id" value="{{ $item['id'] }}">
-                                    <button type="submit" onclick="return confirm('Apakah anda yakin? Tindakan ini tidak bisa di ubah')" class="btn btn-primary btn-sm">
+                                    <button data-confirm-delete="true" type="submit" onclick="return confirm('Apakah anda yakin? Tindakan ini tidak bisa di ubah')" class="btn btn-primary btn-sm">
                                         <i class="bi bi-check-circle"></i>
                                         <span>Pilih</span>
                                     </button>

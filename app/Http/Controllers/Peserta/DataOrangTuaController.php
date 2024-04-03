@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Services\DataOrangTuaService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DataOrangTuaController extends Controller
 {
@@ -35,6 +36,7 @@ class DataOrangTuaController extends Controller
         if (!$id && !$request->get('type')) {
             return $this->listDataOrangTua($dataOrangTuaService);
         } else {
+            
             return view('peserta.formulir.data-orang-tua-isi', [
                 'data' => $dataOrangTuaService->getById($id),
             ]);
@@ -61,6 +63,7 @@ class DataOrangTuaController extends Controller
             $orangTua = $dataOrangTuaService->getById($id);
             $orangTua->update($validated);
             //redirect ke halaman orang tua
+            toast('Data orang tua berhasil di perbaharui','success');
             return redirect()->route('peserta.pendaftaran.form.data-orang-tua')->withErrors([
                 'toast' => "Data berhasil di update"
             ]);

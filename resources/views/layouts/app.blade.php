@@ -44,4 +44,5 @@
         @endif
         {{ $slot }}
     </div>
+    @include('vendor.sweetalert.alert')
 </x-main-layout>

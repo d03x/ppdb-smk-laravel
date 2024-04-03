@@ -12,7 +12,7 @@ class PendaftaranController extends Controller
     public function pilih_jalur(Request $request, PendaftaranService $pendaftaranService)
     {
         $pendaftaranService->pilihJalurPendaftaran($request->id);
-
+        toast('Berhasil memilih jalur pendaftaran','success');
         return redirect()->back();
     }
 

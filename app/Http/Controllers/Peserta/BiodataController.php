@@ -68,9 +68,8 @@ class BiodataController extends Controller
         ]);
       
         $biodataPesertaService->editBiodata($validatedData);
-        return redirect()->route('peserta.pendaftaran.form.biodata')->withErrors([
-            'success' => "Data berhasil di update"
-        ]);
+        toast('Biodata perserta berhasil diperbaharui','success');
+        return redirect()->route('peserta.pendaftaran.form');
 
     }
 }
