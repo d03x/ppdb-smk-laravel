@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Peserta\BiodataController;
 use App\Http\Controllers\Peserta\DashboardController;
+use App\Http\Controllers\Peserta\DataOrangTuaController;
 use App\Http\Controllers\Peserta\PendaftaranController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,11 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('form')->name('pendaftaran.form.')->group(function () {
             Route::get('biodata/{id?}', [BiodataController::class, 'index'])->name('biodata');
             Route::put('biodata/{id?}', [BiodataController::class, 'simpan'])->name('biodata.simpan');
+
+            // //data orang tua
+            Route::get('data-orang-tua/{id?}',[DataOrangTuaController::class,'index'])->name('data-orang-tua');
+            Route::put('data-orang-tua/{id?}',[DataOrangTuaController::class,'simpan'])->name('data-orang-tua.simpan');
+            
         });
     });
     Route::prefix('backoffices')->name('backoffice.')->group(function () {

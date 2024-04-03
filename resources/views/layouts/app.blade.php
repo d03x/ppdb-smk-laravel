@@ -1,4 +1,4 @@
-@props(['appTitle'=>false])
+@props(['pageTitle'=>false])
 <x-main-layout>
     <x-navbar>
         <ul class="mb-2 navbar-nav me-auto mb-lg-0">
@@ -22,6 +22,11 @@
                 </a>
             </li>
         </ul>
+        <ul class="ml-auto navbar-nav">
+            <li class="nav-item text-light">
+                {{ auth()->user()->name }}
+            </li>
+        </ul>
     </x-navbar>
     <div class="alert alert-warning border-warning tw-rounded-none tw-border-t-0 tw-border-l-0 tw-border-r-0 tw-text-sm">
       <div class="container">
@@ -30,10 +35,10 @@
       </div>
     </div>
     <div class="container">
-        @if ($appTitle)
+        @if ($pageTitle)
         <div class="tw-flex tw-items-center tw-justify-between">
             <div class="tw-text-lg tw-uppercase text-secondary tw-font-bold">
-                <h1>Formulir Pendaftaran</h1>
+                <h1>{{ $pageTitle }}</h1>
             </div>
         </div>
         @endif

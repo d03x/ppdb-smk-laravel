@@ -31,4 +31,7 @@ class Pendaftaran extends Model
     public function biodata(){
         return $this->hasOne(BiodataPeserta::class);
     }
+    public function orangtua(){
+        return $this->hasMany(DataOrangTua::class);
+    }
 }

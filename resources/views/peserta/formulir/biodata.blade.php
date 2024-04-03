@@ -1,4 +1,4 @@
-<x-app-layout appTitle='Formulir Pendaftaran'>
+<x-app-layout pageTitle='Formulir Pendaftaran'>
    
     <div class="tw-my-3">
         <div class="card tw-rounded-sm tw-shadow tw-border">

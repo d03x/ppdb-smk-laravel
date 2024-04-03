@@ -25,7 +25,7 @@
         <div class="table-responsive ">
            
             <table  data-title="Pilih jalur pendaftaran!" data-intro="Setelah anda mendaftar sekarang pilih jalur pendaftaran terlebih dahulu" class="table table-bordered table-striped tw-border-zinc-400 tw-shadow-sm tw-border">
-                <thead class="tw-text-sm tw-text-center">
+                <thead class="tw-text-sm table-primary table-active tw-text-center">
                     <tr>
                         <th rowspan="2">Nama Jalur</th>
                         <th colspan="2">Tanggal</th>
