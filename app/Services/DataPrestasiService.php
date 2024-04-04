@@ -9,6 +9,9 @@ class DataPrestasiService
     /**
      * Create a new class instance.
      */
+    public function all(){
+        return DataPrestasi::all();
+    }
     public function findById(?string $id)
     {
         return DataPrestasi::query()->find($id);
@@ -22,7 +25,7 @@ class DataPrestasiService
     public function create(array $data){
         return DataPrestasi::query()->create($data);
     }
-    public function simpan(?array $data){
-        return DataPrestasi::query()->update($data);
+    public function simpan(?array $data,$id){
+        return DataPrestasi::query()->find($id)->update($data);
     }
 }

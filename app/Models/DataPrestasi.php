@@ -10,7 +10,7 @@ class DataPrestasi extends Model
 {
     use HasFactory,HasUuids;
     protected $fillable = [
-        'nama',
+        'nama_kegiatan',
         'pendaftaran_id',
         'pencapaian',
         'jenis',

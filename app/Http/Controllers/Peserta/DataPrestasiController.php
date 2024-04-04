@@ -23,15 +23,19 @@ class DataPrestasiController extends Controller
        try {
      
 
-        $dataPrestasiService->simpan($validated);
-        alert("Suksess","Prestasi berhasil di simpan",'success');
-        return redirect()->back();
+        $dataPrestasiService->simpan($validated,$id);
+        toast("Prestasi berhasil di simpan",'success');
+        return redirect()->route('peserta.pendaftaran.form.data-prestasi.lists');
        } catch (\Throwable $th) {
          Log::alert($th->getMessage());
        }
         
     }
-
+   public function lists(DataPrestasiService $dataPrestasiService){
+    return view('peserta.formulir.data-prestasi-list')->with('data',$dataPrestasiService->findByPendaftaranID(
+        $this->current_user()->pendaftaran->id,
+    ));
+   }
     public function index(HttpRequest $request, DataPrestasiService $dataPrestasiService, ?string $id = null)
     {
         $user = $this->current_user();
