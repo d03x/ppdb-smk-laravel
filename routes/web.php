@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
             Route::put('orang-tua/{id?}', [DataOrangTuaController::class, 'simpan'])->name('data-orang-tua.simpan');
             // data prestasi
             Route::get('/prestasi/{id?}', [DataPrestasiController::class, 'index'])->name('data-prestasi');
-            Route::put('/prestasi/{id?}', [DataPrestasiController::class, 'index'])->name('data-prestasi.simpan');
+            Route::put('/prestasi/{id?}', [DataPrestasiController::class, 'simpan'])->name('data-prestasi.simpan');
         });
     });
     Route::prefix('backoffices')->name('backoffice.')->group(function () {

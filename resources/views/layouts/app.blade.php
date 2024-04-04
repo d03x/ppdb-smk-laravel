@@ -36,7 +36,7 @@
     </div>
     <div class="container">
         @if ($pageTitle)
-        <div class="tw-flex tw-items-center tw-justify-between">
+        <div class="tw-flex tw-items-center tw-my-9 tw-justify-between">
             <div class="tw-text-lg tw-uppercase text-secondary tw-font-bold">
                 <h1>{{ $pageTitle }}</h1>
             </div>
