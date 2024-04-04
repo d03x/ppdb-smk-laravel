@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Services\DataOrangTuaService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class DataOrangTuaController extends Controller
 {
@@ -28,6 +27,7 @@ class DataOrangTuaController extends Controller
                      'pendaftaran_id' => auth()->user()->pendaftaran->id,
                      'type' => $type,
                  ]);
+
                 return redirect()->route('peserta.pendaftaran.form.data-orang-tua', [
                     'id' => $data->id,
                 ]);
@@ -36,15 +36,14 @@ class DataOrangTuaController extends Controller
         if (!$id && !$request->get('type')) {
             return $this->listDataOrangTua($dataOrangTuaService);
         } else {
-            
             return view('peserta.formulir.data-orang-tua-isi', [
                 'data' => $dataOrangTuaService->getById($id),
             ]);
         }
     }
 
-    public function simpan(Request $request,DataOrangTuaService $dataOrangTuaService,$id){
-       try {
+    public function simpan(Request $request, DataOrangTuaService $dataOrangTuaService, $id)
+    {
         $ortu_ids = $request->user()->pendaftaran->orangtua->pluck('id')->toArray();
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
@@ -55,21 +54,24 @@ class DataOrangTuaController extends Controller
             'alamat' => 'required|string|max:255',
             'no_telepon' => 'required|string|max:255',
         ]);
-        /**
-         * cek apakah id nya dimiliki sama peserta
-         */
-        if ( in_array($id,$ortu_ids) ) {
-            //jika ya ambil data dari service lalu update
-            $orangTua = $dataOrangTuaService->getById($id);
-            $orangTua->update($validated);
-            //redirect ke halaman orang tua
-            toast('Data orang tua berhasil di perbaharui','success');
-            return redirect()->route('peserta.pendaftaran.form.data-orang-tua')->withErrors([
-                'toast' => "Data berhasil di update"
-            ]);
+        try {
+            /*
+             * cek apakah id nya dimiliki sama peserta
+             */
+            if (in_array($id, $ortu_ids)) {
+                // jika ya ambil data dari service lalu update
+                $orangTua = $dataOrangTuaService->getById($id);
+                $orangTua->update($validated);
+                // redirect ke halaman orang tua
+                toast('Data orang tua berhasil di perbaharui', 'success');
+
+                return redirect()->route('peserta.pendaftaran.form.data-orang-tua')->withErrors([
+                    'toast' => 'Data berhasil di update',
+                ]);
+            }
+            echo 324;
+        } catch (\Throwable $th) {
+            Log::alert($th->getMessage());
         }
-       } catch (\Throwable $th) {
-         Log::alert($th->getMessage());
-       }
     }
 }

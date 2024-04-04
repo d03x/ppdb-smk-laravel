@@ -9,10 +9,9 @@ class DashboardController extends Controller
 {
     public function index(JalurPendaftaranService $jalurPendaftaranService)
     {
-       
         return view('welcome', [
             'jalur_pendaftaran' => $jalurPendaftaranService->get(),
-            'pendaftaran_peserta' => auth()->user()->pendaftaran,
+            'pendaftaran_peserta' => $this->current_user()->pendaftaran,
         ]);
     }
 

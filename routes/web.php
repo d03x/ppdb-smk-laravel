@@ -4,9 +4,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Peserta\BiodataController;
 use App\Http\Controllers\Peserta\DashboardController;
 use App\Http\Controllers\Peserta\DataOrangTuaController;
+use App\Http\Controllers\Peserta\DataPrestasiController;
 use App\Http\Controllers\Peserta\PendaftaranController;
 use Illuminate\Support\Facades\Route;
-
 
 Route::middleware('guest')->name('peserta.')->group(function () {
     Route::get('login', [AuthController::class, 'loginView'])->name('login');
@@ -25,9 +25,11 @@ Route::middleware(['auth'])->group(function () {
             Route::put('biodata/{id?}', [BiodataController::class, 'simpan'])->name('biodata.simpan');
 
             // //data orang tua
-            Route::get('data-orang-tua/{id?}',[DataOrangTuaController::class,'index'])->name('data-orang-tua');
-            Route::put('data-orang-tua/{id?}',[DataOrangTuaController::class,'simpan'])->name('data-orang-tua.simpan');
-            
+            Route::get('orang-tua/{id?}', [DataOrangTuaController::class, 'index'])->name('data-orang-tua');
+            Route::put('orang-tua/{id?}', [DataOrangTuaController::class, 'simpan'])->name('data-orang-tua.simpan');
+            // data prestasi
+            Route::get('/prestasi/{id?}', [DataPrestasiController::class, 'index'])->name('data-prestasi');
+            Route::put('/prestasi/{id?}', [DataPrestasiController::class, 'index'])->name('data-prestasi.simpan');
         });
     });
     Route::prefix('backoffices')->name('backoffice.')->group(function () {

@@ -16,7 +16,7 @@ class BiodataController extends Controller
     }
     public function index(?string $id = null)
     {
-        $user = Auth::user();
+        $user = $this->current_user();
         /**
          * jika sudah ada
          */

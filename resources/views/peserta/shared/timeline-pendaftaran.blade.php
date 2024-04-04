@@ -55,33 +55,57 @@
                         <div class="ms-2 me-auto">
                             Data orang tua
                         </div>
+                        @if ($user->pendaftaran?->orangtua)
+                        <span class="text-primary">
+                            <i class="bi bi-check-circle"></i>
+                        </span>
+                        @else
                         <span class="text-danger">
                             <i class="bi bi-x-circle"></i>
                         </span>
+                        @endif
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="ms-2 me-auto">
                             Data prestasi
                         </div>
+                        @if ($user->pendaftaran?->prestasi)
                         <span class="text-primary">
                             <i class="bi bi-check-circle"></i>
                         </span>
+                        @else
+                        <span class="text-danger">
+                            <i class="bi bi-x-circle"></i>
+                        </span>
+                        @endif
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="ms-2 me-auto">
                             Data Nilai Rapot
                         </div>
+                        @if ($user->pendaftaran?->rapot)
+                        <span class="text-primary">
+                            <i class="bi bi-check-circle"></i>
+                        </span>
+                        @else
                         <span class="text-danger">
                             <i class="bi bi-x-circle"></i>
                         </span>
+                        @endif
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="ms-2 me-auto">
                             Data Sekolah asal
                         </div>
+                        @if ($user->pendaftaran?->asalsekolah)
+                        <span class="text-primary">
+                            <i class="bi bi-check-circle"></i>
+                        </span>
+                        @else
                         <span class="text-danger">
                             <i class="bi bi-x-circle"></i>
                         </span>
+                        @endif
                     </li>
                 </ul>
                 <a href="{{ route('peserta.pendaftaran.form') }}" class="btn btn-primary btn-sm">

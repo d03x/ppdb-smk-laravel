@@ -12,9 +12,16 @@ abstract class Controller
     public function __construct()
     {
         if (!Cache::get('user:current')) {
-            Cache::set('user:current', auth()->user(), now()->addSeconds(30));
+            Cache::set('user:current', $this->current_user(), now()->addSeconds(30));
         }
         $user = Cache::get('user:current');
         view()->share('user', $user);
+    }
+
+    public function current_user()
+    {
+        return once(function () {
+            return auth()->user();
+        });
     }
 }

@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Pendaftaran extends Model
 {
-    use HasFactory,HasUuids;
+    use HasFactory;
+    use HasUuids;
     protected $with = [
-        'biodata'
+        'biodata',
     ];
     protected $guarded = [];
     protected $fillable = [
@@ -20,18 +22,31 @@ class Pendaftaran extends Model
         'user_id',
         'diterima',
         'waktu_daftar',
-        'status_verifikasi_formulir'
+        'status_verifikasi_formulir',
     ];
-    public function user(){
+
+    public function scopeCekKelenkapanForm(Builder $query)
+    {
+        return true;
+    }
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-    public function jalur_pendaftaran(){
+
+    public function jalur_pendaftaran()
+    {
         return $this->belongsTo(JalurPendaftaran::class);
     }
-    public function biodata(){
+
+    public function biodata()
+    {
         return $this->hasOne(BiodataPeserta::class);
     }
-    public function orangtua(){
+
+    public function orangtua()
+    {
         return $this->hasMany(DataOrangTua::class);
     }
 }
