@@ -14,7 +14,7 @@
                     @else
                     <p class="text-primary tw-text-xs tw-capitalize tw-font-normal">
                         <i class="bi bi-check-circle"></i>
-                        Sudah di pilih ({{ $user->pendaftaran->jalur_pendaftaran->nama }})
+                        Pendaftaran Anda untuk {{ $user->pendaftaran->jalur_pendaftaran->nama }} telah ditetapkan.
                     </p>
                     @endif
                 </h4>
@@ -106,7 +106,7 @@
                         @endif
                     </li>
                 </ul>
-                <a href="{{ route('peserta.pendaftaran.form') }}" class="btn btn-primary btn-sm">
+                <a href="{{ route('peserta.pendaftaran.form') }}" class="btn btn-primary">
                     <i class="bi bi-pencil-square"></i>
                     <span>Lengkapi Sekarang</span>
                 </a>

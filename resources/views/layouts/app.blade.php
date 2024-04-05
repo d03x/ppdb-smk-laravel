@@ -28,7 +28,7 @@
             </li>
         </ul>
     </x-navbar>
-    <div class="alert alert-warning border-warning tw-rounded-none tw-border-t-0 tw-border-l-0 tw-border-r-0 tw-text-sm">
+    <div class="alert alert-warning border-warning tw-rounded-none tw-border-t-0 tw-border-l-0 tw-border-r-0 tw-text-sm tw-text-black">
       <div class="container">
           <i class="bi bi-bell"></i>
           Ada <span class="tw-font-bold text-primary">5 Pengumuman Baru</span> Yang belum dibaca
@@ -36,7 +36,7 @@
     </div>
     <div class="container">
         @if ($pageTitle)
-        <div class="tw-flex tw-items-center tw-my-9 tw-justify-between">
+        <div class="tw-flex tw-items-center tw-my-3 tw-justify-between">
             <div class="tw-text-lg tw-uppercase text-secondary tw-font-bold">
                 <h1>{{ $pageTitle }}</h1>
             </div>

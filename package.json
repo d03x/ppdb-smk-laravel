@@ -17,6 +17,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "@tailwindcss/typography": "github:tailwindcss/typography",
         "bootstrap": "^5.3.3",
         "intro.js": "^7.2.0",
         "jquery": "^3.7.1",

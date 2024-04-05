@@ -8,13 +8,13 @@
         @else
         <p data-title="Status pendaftaran!" data-intro="Status pendaftaran anda akan muncul di sini, jika sudah di terima notifikasi ini akan berubah." class="alert alert-danger border-danger">
             <i class="bi bi-info-circle"></i>
-            Status pendaftaran anda belum di terima! Silahkan ikuti alur pendaftaran nya. jika ada pertanyaan silahkan klik menu bantuan serta cek terus pengumuman
+            Pendaftaran Anda belum disetujui. Silakan ikuti langkah-langkah pendaftaran dengan seksama. Jika Anda memiliki pertanyaan, silakan klik menu bantuan dan pantau pengumuman terbaru.
         </p>
     @endif
 
     <!-- pilih jalur pendaftaran -->
 
-    <div class="gap-3 tw-grid tw-grid-cols-1 sm:tw-grid-cols-2">
+    <div class="gap-4 tw-grid tw-grid-cols-1 sm:tw-grid-cols-2">
         @if ($user->pendaftaran)
         @include('peserta.shared.detail-pendaftaran')
         @else

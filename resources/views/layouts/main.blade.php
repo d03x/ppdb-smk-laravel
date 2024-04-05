@@ -13,7 +13,7 @@
     ])
 </head>
 
-<body data-bs-theme="light">
+<body data-bs-theme="light" style="background: #ffffff">
     @if ($promoNotification)
     <div
         class="alert tw-text-sm tw-flex tw-items-center tw-justify-start tw-gap-1 alert-primary tw-rounded-none broder-primary">

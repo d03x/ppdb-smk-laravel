@@ -11,6 +11,7 @@
                 <li><a class="dropdown-item" href="{{ route('peserta.pendaftaran.form.data-orang-tua') }}?type=wali">Data Wali</a></li>
             </ul>
         </div>
+     <div class="table-responsive">
         <table class="table table-secondary tw-text-sm table-bordered table-striped tw-rounded">
             <thead>
                 <tr>
@@ -46,6 +47,7 @@
 
             </tbody>
         </table>
+     </div>
     </div>
     @push('footer')
     <div class="modal fade" id="modal-detail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
