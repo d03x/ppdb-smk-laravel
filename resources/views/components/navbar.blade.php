@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-gradient tw-shadow-lg navbar-dark bg-ary" style="background: #003366">
+<nav class="navbar navbar-expand-lg sticky-top bg-gradient tw-shadow-lg navbar-dark bg-ary" style="background: #003366">
     <div class="container">
       <a class="navbar-brand" href="#">
         <div class="tw-font-bold">{{ config('app.name') }}</div>

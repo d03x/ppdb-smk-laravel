@@ -1,16 +1,19 @@
 <x-app-layout pageTitle="Prestasi">
-    <a class="mb-2 btn btn-sm btn-primary" href="{{ route('peserta.pendaftaran.form.data-prestasi') }}">Tambah Baru</a>
+    <a class="tw-p-2 tw-inline-block tw-text-normal tw-rounded tw-mb-3 tw-text-white tw-bg-brand hover:tw-bg-brand/80 tw-transition-all" href="{{ route('peserta.pendaftaran.form.data-prestasi') }}">
+    <i class="bi bi-plus-circle"></i>
+    Tambah Baru
+    </a>
     <div class="table-responsive">
         <table class="table table-bordered table-secondary table-striped">
             <thead>
                 <tr>
-                    <th class="text-white bg-primary">#</th>
-                    <th class="text-white bg-primary">Nama Kegiatan</th>
-                    <th class="text-white bg-primary">Jenis</th>
-                    <th class="text-white bg-primary">Tingkat</th>
-                    <th class="text-white bg-primary">Tahun</th>
-                    <th class="text-white bg-primary">Pencapaian</th>
-                    <th class="text-white bg-primary">Actions</th>
+                    <th class="text-white bg-gradient tw-font-normal" style="background: #003366">#</th>
+                    <th class="text-white bg-gradient tw-font-normal" style="background: #003366">Nama Kegiatan</th>
+                    <th class="text-white bg-gradient tw-font-normal" style="background: #003366">Jenis</th>
+                    <th class="text-white bg-gradient tw-font-normal" style="background: #003366">Tingkat</th>
+                    <th class="text-white bg-gradient tw-font-normal" style="background: #003366">Tahun</th>
+                    <th class="text-white bg-gradient tw-font-normal" style="background: #003366">Pencapaian</th>
+                    <th class="text-white bg-gradient tw-font-normal" style="background: #003366">Actions</th>
                 </tr>
             </thead>
             <tbody>

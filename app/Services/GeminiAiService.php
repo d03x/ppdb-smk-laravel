@@ -23,3 +23,4 @@ class GeminiAiService
         $client->post($this->buildUrlRequest())->getBody();
     }
 }
+?>

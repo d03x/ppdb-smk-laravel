@@ -10,3 +10,9 @@
 *{
     font-family: Google-Sans;
 }
+
+@layer components{
+    .user_dropdown{
+       @apply tw-rounded-sm tw-shadow-sm;
+    }
+}

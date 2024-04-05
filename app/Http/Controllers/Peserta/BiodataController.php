@@ -5,52 +5,54 @@ namespace App\Http\Controllers\Peserta;
 use App\Http\Controllers\Controller;
 use App\Services\BiodataPesertaService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class BiodataController extends Controller
 {
     public function __construct(
         public BiodataPesertaService $biodataPesertaService
-    ){
+    ) {
+        parent::__construct();
         $this->biodataPesertaService = new BiodataPesertaService();
     }
-    public function index(?string $id = null)
+
+    public function index(string $id = null)
     {
         $user = $this->current_user();
-        /**
+        /*
          * jika sudah ada
          */
-        if(!$user->pendaftaran){
+        if (!$user->pendaftaran) {
             return redirect()->route('peserta.index');
         }
-        if ( $id && ($bp = $this->biodataPesertaService->cekById($id)) ){
-           return view('peserta.formulir.biodata', [
-            'data' => $bp
-           ]);
-        }  else{
-            /**
+        if ($id && ($bp = $this->biodataPesertaService->cekById($id))) {
+            return view('peserta.formulir.biodata', [
+             'data' => $bp,
+            ]);
+        } else {
+            /*
              * jika biodata sudah ada jatunya jadi edit data
              */
-          if($biodata = $user->pendaftaran->biodata){
-            return redirect()->route('peserta.pendaftaran.form.biodata',[
-                'id' => $biodata->id,
-                
-            ]);
-          }else{
-            //jika tidak buat
-            $biodata =  $this->biodataPesertaService->store([
-                'pendaftaran_id' => $user->pendaftaran->id,
-                'nama_lengkap' => $user->name,
-                'email' => $user->email
-            ]);
-            return redirect()->route('peserta.pendaftaran.form.biodata',[
-                'id' => $biodata->id,
-            ]);
-          }
+            if ($biodata = $user->pendaftaran->biodata) {
+                return redirect()->route('peserta.pendaftaran.form.biodata', [
+                    'id' => $biodata->id,
+                ]);
+            } else {
+                // jika tidak buat
+                $biodata = $this->biodataPesertaService->store([
+                    'pendaftaran_id' => $user->pendaftaran->id,
+                    'nama_lengkap' => $user->name,
+                    'email' => $user->email,
+                ]);
+
+                return redirect()->route('peserta.pendaftaran.form.biodata', [
+                    'id' => $biodata->id,
+                ]);
+            }
         }
-      
     }
-    public function simpan(Request $request,BiodataPesertaService $biodataPesertaService){
+
+    public function simpan(Request $request, BiodataPesertaService $biodataPesertaService)
+    {
         $validatedData = $request->validate([
             'foto_peserta' => 'nullable|image|mimes:jpeg,png,jpg,bmp|max:2048',
             'NISN' => 'required|numeric|digits:10',
@@ -66,10 +68,10 @@ class BiodataController extends Controller
             'telepon' => 'required|string|max:255',
             'email' => 'required|email',
         ]);
-      
-        $biodataPesertaService->editBiodata($validatedData);
-        toast('Biodata perserta berhasil diperbaharui','success');
-        return redirect()->route('peserta.pendaftaran.form');
 
+        $biodataPesertaService->editBiodata($validatedData);
+        toast('Biodata perserta berhasil diperbaharui', 'success');
+
+        return redirect()->route('peserta.pendaftaran.form');
     }
 }

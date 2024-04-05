@@ -7,7 +7,11 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors : {
+        brand : "#003366"
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/typography')

@@ -5,7 +5,7 @@
                 <i class="badge badge-dot badge-dot-xl {{ $user->pendaftaran ? 'bg-success' : 'bg-danger' }}"> </i>
             </span>
             <div class="vertical-timeline-element-content bounce-in">
-                <h4 class="timeline-title tw-text-sm">PIIH JALUR PENDAFARAN
+                <h4 class="timeline-title">PIIH JALUR PENDAFARAN
                     @if (!$user->pendaftaran)
                     <p class="text-danger tw-text-xs tw-capitalize tw-font-normal">
                         <i class="bi bi-x-circle"></i>
@@ -29,7 +29,7 @@
                 <i class="badge badge-dot badge-dot-xl bg-warning"> </i>
             </span>
             <div class="vertical-timeline-element-content bounce-in">
-                <h4 class="timeline-title tw-text-sm">FORMULIR PENDAFTARAN
+                <h4 class="timeline-title tw-font-light">FORMULIR PENDAFTARAN
                     <p class="text-danger tw-text-xs tw-capitalize tw-font-normal">
                         <i class="bi bi-x-circle"></i>
                         Belum lengkapi! Lengkapi sekarang
@@ -120,7 +120,7 @@
                 <i class="badge badge-dot badge-dot-xl bg-danger"> </i>
             </span>
             <div class="vertical-timeline-element-content bounce-in">
-                <h4 class="timeline-title tw-text-sm">UPLOAD BERKAS</h4>
+                <h4 class="timeline-title">UPLOAD BERKAS</h4>
                 <p class="text-danger">
                     <i class="bi bi-x-circle"></i>
                     Belum melakukan upload berkas! Lengkapi formulir pendaftaran terlebih dahulu
@@ -134,7 +134,7 @@
                 <i class="badge badge-dot badge-dot-xl bg-danger"> </i>
             </span>
             <div class="vertical-timeline-element-content bounce-in">
-                <h4 class="timeline-title tw-text-sm">TES & WAWANCARA</h4>
+                <h4 class="timeline-title">TES & WAWANCARA</h4>
                 <p class="text-danger">
                     <i class="bi bi-x-circle"></i>
                     Belum melakukan test dan wawancara
@@ -148,7 +148,7 @@
                 <i class="badge badge-dot badge-dot-xl bg-danger"> </i>
             </span>
             <div class="vertical-timeline-element-content bounce-in">
-                <h4 class="timeline-title tw-text-sm">Daftar ulang</h4>
+                <h4 class="timeline-title">Daftar ulang</h4>
                 <p class="text-danger">
                     <i class="bi bi-x-circle"></i>
                     Belum melakukan daftar ulang
@@ -162,7 +162,7 @@
                 <i class="badge badge-dot badge-dot-xl bg-primary"> </i>
             </span>
             <div class="vertical-timeline-element-content bounce-in">
-                <h4 class="timeline-title tw-text-sm">Diterima</h4>
+                <h4 class="timeline-title">Diterima</h4>
                 <p class="text-primary">
                     <i class="bi bi-check-circle"></i>
                     Selama Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque rerum ex quae ut molestiae!

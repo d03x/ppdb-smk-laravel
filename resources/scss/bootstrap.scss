@@ -65,11 +65,11 @@
 }
 
 .vertical-timeline-element-content .timeline-title {
-   font-size: .8rem;
+   font-size: 14px;
    text-transform: uppercase;
    margin: 0 0 .5rem;
    padding: 2px 0 0;
-   font-weight: bold;
+   font-weight: normal;
 }
 
 .vertical-timeline-element-content .vertical-timeline-element-date {
@@ -243,4 +243,5 @@ input[type=radio]:checked+label:before {
  .btn-material.raised {
    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
  }
+ 
  
