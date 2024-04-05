@@ -32,6 +32,8 @@ class DataPrestasiController extends Controller
         
     }
    public function lists(DataPrestasiService $dataPrestasiService){
+    confirmDelete('Apakah anda yakin?','Data akan di hapus dan tidak bisa di kembalikan lagi?');
+
     return view('peserta.formulir.data-prestasi-list')->with('data',$dataPrestasiService->findByPendaftaranID(
         $this->current_user()->pendaftaran->id,
     ));
@@ -55,5 +57,14 @@ class DataPrestasiController extends Controller
             }
             abort(404);
         }
+    }
+    public function delete(?string $id, DataPrestasiService $dataPrestasiService){
+        $prestasis = $dataPrestasiService->findByPendaftaranID($this->current_user()->pendaftaran->id);
+        if(in_array($id, $prestasis->pluck('id')->toArray())){
+            $dataPrestasiService->delete($id);
+            toast('Prestasi berhasil di hapus!','success');
+            return redirect()->route('peserta.pendaftaran.form.data-prestasi.lists');
+        }
+        abort(404);
     }
 }

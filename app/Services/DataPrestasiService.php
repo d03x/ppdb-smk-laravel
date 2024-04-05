@@ -28,4 +28,7 @@ class DataPrestasiService
     public function simpan(?array $data,$id){
         return DataPrestasi::query()->find($id)->update($data);
     }
+    public function delete(?string $id){
+        return $this->findById($id)->delete();
+    }
 }

@@ -28,7 +28,11 @@
                 <div class="ms-2 me-auto">
                     Data prestasi
                 </div>
+                @if (!$user->pendaftaran->prestasi)
                 <a href="{{ route('peserta.pendaftaran.form.data-prestasi.lists') }}" class="btn btn-primary btn-sm">Isi Formulir</a>
+                @else
+                <a href="{{ route('peserta.pendaftaran.form.data-prestasi.lists') }}" class="btn btn-primary btn-sm">Perbaharui</a>
+                @endif
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">

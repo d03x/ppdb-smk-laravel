@@ -28,9 +28,13 @@ Route::middleware(['auth'])->group(function () {
             Route::get('orang-tua/{id?}', [DataOrangTuaController::class, 'index'])->name('data-orang-tua');
             Route::put('orang-tua/{id?}', [DataOrangTuaController::class, 'simpan'])->name('data-orang-tua.simpan');
             // data prestasi
-            Route::get('/prestasi/lists', [DataPrestasiController::class, 'lists'])->name('data-prestasi.lists');
-            Route::get('/prestasi/{id?}', [DataPrestasiController::class, 'index'])->name('data-prestasi');
-            Route::put('/prestasi/{id?}', [DataPrestasiController::class, 'simpan'])->name('data-prestasi.simpan');
+
+            Route::prefix('/prestasi')->group(function () {
+                Route::get('/lists', [DataPrestasiController::class, 'lists'])->name('data-prestasi.lists');
+                Route::get('/{id?}', [DataPrestasiController::class, 'index'])->name('data-prestasi');
+                Route::put('/{id?}/edit', [DataPrestasiController::class, 'simpan'])->name('data-prestasi.simpan');
+                Route::delete('/{id?}/delete', [DataPrestasiController::class, 'delete'])->name('data-prestasi.delete');
+            });
         });
     });
     Route::prefix('backoffices')->name('backoffice.')->group(function () {

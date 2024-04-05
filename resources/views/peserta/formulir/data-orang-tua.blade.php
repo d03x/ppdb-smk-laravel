@@ -1,8 +1,8 @@
 <x-app-layout pageTitle="Data orang tua">
     <div class="my-3">
         <div class="dropdown">
-            <button class="mb-3 btn btn-primary tw-rounded-none dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-             Isi Data Orang Tua / Wali
+            <button class="mb-3 btn btn-primary tw-rounded dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+             TAMBAH / PERBAHARUI
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="{{ route('peserta.pendaftaran.form.data-orang-tua') }}?type=ayah">Data Ayah</a></li>
@@ -10,14 +10,14 @@
               <li><a class="dropdown-item" href="{{ route('peserta.pendaftaran.form.data-orang-tua') }}?type=wali">Data Wali</a></li>
             </ul>
           </div>
-          <table class="table tw-text-sm table-bordered table-primary table-active">
+          <table class="table table-secondary tw-text-sm table-bordered table-striped tw-rounded">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Sebagai</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">NIK</th>
-                    <th scope="col">Aksi</th>
+                    <th class="text-white bg-primary" scope="col">#</th>
+                    <th class="text-white bg-primary" scope="col">Sebagai</th>
+                    <th class="text-white bg-primary" scope="col">Nama</th>
+                    <th class="text-white bg-primary" scope="col">NIK</th>
+                    <th class="text-white bg-primary" scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,14 +29,15 @@
                     <td>{{ strtoupper( $item->type) }}</td>
                     <td>{{ $item->nama ?? '-' }}</td>
                     <td>{{ $item->nik ?? '-'  }}</td>
-                    <td width="100px">
-                        <a class="btn btn-primary btn-sm" href="{{ route('peserta.pendaftaran.form.data-orang-tua',['id'=>$item->id]) }}">Ubah</a>
+                    <td class="gap-1 tw-flex tw-items-center">
+                        <a class="btn btn-primary btn-sm tw-text-sm" href="{{ route('peserta.pendaftaran.form.data-orang-tua',['id'=>$item->id]) }}">Ubah</a>
+                        <a class="btn btn-success btn-sm tw-text-sm" href="{{ route('peserta.pendaftaran.form.data-orang-tua',['id'=>$item->id]) }}">View</a>
                     </td>
                     </tr>
                 @endforeach
                     @else
                     <tr>
-                        <th colspan="7" class="tw-text-center" scope="row">Silakan Isi Formulir Dulu</th>
+                        <th colspan="7" class="tw-text-center tw-text-sm" scope="row">Silakan Isi Formulir Dulu</th>
                     </tr>
                 @endif
                
