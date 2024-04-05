@@ -106,7 +106,7 @@
                         @endif
                     </li>
                 </ul>
-                <a href="{{ route('peserta.pendaftaran.form') }}" class="btn btn-primary">
+                <a href="{{ route('peserta.pendaftaran.form') }}" class="btn btn-sm btn-primary">
                     <i class="bi bi-pencil-square"></i>
                     <span>Lengkapi Sekarang</span>
                 </a>

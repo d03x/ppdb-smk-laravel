@@ -50,7 +50,7 @@
     <div class="container">
         @if ($pageTitle)
         <div class="tw-flex tw-items-center tw-my-3 tw-justify-between">
-            <div class="tw-text-lg tw-uppercase text-secondary tw-font-bold">
+            <div class="tw-text-2xl tw-uppercase text-secondary">
                 <h1>{{ $pageTitle }}</h1>
             </div>
         </div>

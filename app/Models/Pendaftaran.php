@@ -49,7 +49,14 @@ class Pendaftaran extends Model
     {
         return $this->hasMany(DataOrangTua::class);
     }
-    public function prestasi(){
+
+    public function prestasi()
+    {
         return $this->hasOne(DataPrestasi::class);
+    }
+
+    public function nilairapot()
+    {
+        return $this->hasOne(DataNilaiRapot::class);
     }
 }

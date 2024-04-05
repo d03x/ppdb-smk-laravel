@@ -1,4 +1,4 @@
-<x-app-layout appTitle="Formulir">
+<x-app-layout pageTitle="Formulir">
     <div class="w-full">
         <ul data-title="Status pendaftaran!" data-intro="Formulir yang harus di isi." class="list-group tw-rounded-none tw-mb-3 tw-mt-4 list-group-numbered">
             <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -38,7 +38,7 @@
                 <div class="ms-2 me-auto">
                     Data Nilai Rapot
                 </div>
-                <a href="{{ route('peserta.pendaftaran.form.data-prestasi') }}" class="btn btn-primary btn-sm">Isi Formulir</a>
+                <a href="{{ route('peserta.pendaftaran.form.data-nilai-rapot.index') }}" class="btn btn-primary btn-sm">Isi Formulir</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">

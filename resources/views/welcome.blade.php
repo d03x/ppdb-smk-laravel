@@ -87,10 +87,19 @@
 
         <!-- end:pilih-jalur-pendaftaran -->
 
-        <div class="card tw-shadow-sm tw-border" data-title="Timeline pendaftaran!" data-intro="Melacak alur pendaftaran anda, agar lebih mudah">
-            <div class="card-body">
-                <span class="mb-2 tw-font-semibold tw-block">Alur Pendaftaran</span>
-                @include('peserta.shared.timeline-pendaftaran')
+        <div class="w-full">
+            <div class="card tw-shadow-sm tw-border" data-title="Timeline pendaftaran!" data-intro="Melacak alur pendaftaran anda, agar lebih mudah">
+                <div class="card-header">
+                    <div class="tw-flex tw-items-center tw-justify-between">
+                        <div class="card-title tw-uppercase">Alur Pendaftaran</div>
+                        <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#alur_pendaftaran" aria-expanded="false" aria-controls="alur_pendaftaran">
+                            Lihat
+                          </button>
+                    </div>
+                </div>
+                <div class="card-body" id='alur_pendaftaran'>
+                    @include('peserta.shared.timeline-pendaftaran')
+                </div>
             </div>
         </div>
     </div>

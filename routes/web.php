@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Peserta\BiodataController;
 use App\Http\Controllers\Peserta\DashboardController;
+use App\Http\Controllers\Peserta\DataNilaiRapotController;
 use App\Http\Controllers\Peserta\DataOrangTuaController;
 use App\Http\Controllers\Peserta\DataPrestasiController;
 use App\Http\Controllers\Peserta\PendaftaranController;
@@ -34,6 +35,10 @@ Route::middleware(['auth'])->group(function () {
                 Route::get('/{id?}', [DataPrestasiController::class, 'index'])->name('data-prestasi');
                 Route::put('/{id?}/edit', [DataPrestasiController::class, 'simpan'])->name('data-prestasi.simpan');
                 Route::delete('/{id?}/delete', [DataPrestasiController::class, 'delete'])->name('data-prestasi.delete');
+            });
+
+            Route::prefix('/rapot')->name('data-nilai-rapot.')->group(function () {
+                Route::get('/', [DataNilaiRapotController::class, 'index'])->name('index');
             });
         });
     });

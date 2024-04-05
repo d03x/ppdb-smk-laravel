@@ -13,7 +13,7 @@ return new class() extends Migration {
         Schema::create('jalur_pendaftarans', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('nama');
-            $table->string('kode')->primary();
+            $table->string('kode')->unique();
             $table->dateTime('tanggal_dibuka');
             $table->dateTime('tanggal_ditutup');
             $table->integer('biaya_pendaftaran')->nullable();
@@ -24,7 +24,7 @@ return new class() extends Migration {
         });
     }
 
-/**
+    /**
      * Reverse the migrations.
      */
     public function down(): void
