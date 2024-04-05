@@ -74,9 +74,7 @@
                             <i class="bi bi-check-circle"></i>
                         </span>
                         @else
-                        <span class="text-danger">
-                            <i class="bi bi-x-circle"></i>
-                        </span>
+                        <div class="badge bg-primary">Opsional</div>
                         @endif
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-start">
