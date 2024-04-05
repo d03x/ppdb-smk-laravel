@@ -24,6 +24,7 @@
    
     {{$slot}}
     <!-- MAINAPP -->
+    @stack('footer')
 </body>
 
 </html>
