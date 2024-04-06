@@ -1,34 +1,52 @@
 <x-app-layout pageTitle="Nilai Rapot">
-    <div class="card card-body">
-        <table class="table text-center table-bordered table-hover table-primary">
+    <div class="table-responsive tw-text-sm">
+        <table class="table tw-w-[1200px] table-striped table-secondary text-center table-bordered table-hover">
             <thead>
                 <tr>
-                    <th rowspan="2">#</th>
-                    <th rowspan="2">Matpel</th>
-                    <th colspan="{{ $jumlah_semester->count() }}">NILAI</th>
+                    <th rowspan="2">NO</th>
+                    <th rowspan="2">Aksi</th>
+                    <th rowspan="2">Semester</th>
+                    <th colspan="{{ $matpel->count() }}">NILAI</th>
                     <th rowspan="2">Rata Rata</th>
                 </tr>
                 <tr>
-                    @foreach ($jumlah_semester as $item)
-                    <th>Semester {{ $item->nama }}</th>
+                    @foreach ($matpel as $item)
+                    <th>{{ $item->nama }}</th>
                     @endforeach
                 </tr>
             </thead>
             <tbody>
-                @foreach ($data as $key => $item)
+                @foreach ($data as $keyw => $item)
+                @php
+                $totalNilaiSemester = 0;
+                @endphp
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $key }}</td>
-                    @foreach ($item as $itemNilai)
-                        @if ($itemNilai && $itemNilai['nilai'])
-                            <td>{{ $itemNilai['nilai'] }}</td>
-                            @else
-                            <td>-</td>
-                        @endif
+                    <td>
+                        <button class="mb-3 btn-sm btn btn-primary tw-rounded dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            UBAH
+                        </button>
+                        <ul class="dropdown-menu">
+                            @foreach ($matpel as $item1)
+                            <li><a class="dropdown-item" href="{{ route('peserta.pendaftaran.form.data-nilai-rapot.nilai.ubah',['matpel_id'=>$item1->id,'semester_id'=>$keyw]) }}">{{ $item1->nama }}</a></li>
+                            @endforeach
+                        </ul>
+                    </td>
+                    <td>Semester {{ $keyw }}</td>
+                    @foreach ($item as $itemval)
+                    @if (is_array($itemval))
+                    <td>{{ $itemval['nilai'] }}</td>
+                    @php
+                    $totalNilaiSemester += (int)$itemval['nilai'];
+                    @endphp
+                    @else
+                    <td>-</td>
+                    @endif
                     @endforeach
                     <td>
-                       90
+                        {{ $totalNilaiSemester / $matpel->count() }}
                     </td>
+                    
                 </tr>
                 @endforeach
             </tbody>

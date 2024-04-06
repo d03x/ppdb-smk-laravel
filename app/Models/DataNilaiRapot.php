@@ -10,7 +10,13 @@ class DataNilaiRapot extends Model
 {
     use HasFactory;
     use HasUuids;
-
+    protected $fillable = [
+        'matpel_id',
+        'semester_id',
+        'pendaftaran_id',
+        'nilai',
+        'nama'
+    ];
     public function pendaftaran()
     {
         return $this->belongsTo(Pendaftaran::class);

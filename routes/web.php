@@ -39,6 +39,8 @@ Route::middleware(['auth'])->group(function () {
 
             Route::prefix('/rapot')->name('data-nilai-rapot.')->group(function () {
                 Route::get('/', [DataNilaiRapotController::class, 'index'])->name('index');
+                Route::get('/nilai/{semester_id}/{matpel_id?}/{rapot_id?}', [DataNilaiRapotController::class, 'ubah_nilai'])->name('nilai.ubah');
+                Route::put('/nilai/{rapot_id?}', [DataNilaiRapotController::class, 'simpan_nilai'])->name('nilai.simpan_nilai');
             });
         });
     });
