@@ -57,6 +57,6 @@ class Pendaftaran extends Model
 
     public function nilairapot()
     {
-        return $this->hasOne(DataNilaiRapot::class);
+        return $this->hasMany(DataNilaiRapot::class);
     }
 }

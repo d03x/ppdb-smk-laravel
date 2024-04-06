@@ -55,7 +55,8 @@
                         <div class="ms-2 me-auto">
                             Data orang tua
                         </div>
-                        @if ($user->pendaftaran?->orangtua)
+                        
+                        @if ($user->pendaftaran?->orangtua && $user->pendaftaran->orangtua->count() > 0)
                         <span class="text-primary">
                             <i class="bi bi-check-circle"></i>
                         </span>
@@ -81,7 +82,7 @@
                         <div class="ms-2 me-auto">
                             Data Nilai Rapot
                         </div>
-                        @if ($user->pendaftaran?->rapot)
+                        @if ($user->pendaftaran?->nilairapot->count() > 0)
                         <span class="text-primary">
                             <i class="bi bi-check-circle"></i>
                         </span>

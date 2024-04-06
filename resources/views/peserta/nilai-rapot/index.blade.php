@@ -16,6 +16,9 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $totalSemuaSemester = 0;
+                @endphp
                 @foreach ($data as $keyw => $item)
                 @php
                 $totalNilaiSemester = 0;
@@ -44,11 +47,18 @@
                     @endif
                     @endforeach
                     <td>
-                        {{ $totalNilaiSemester / $matpel->count() }}
+                        @php
+                            $total = $totalNilaiSemester / $matpel->count();
+                            $totalSemuaSemester += $total;
+                        @endphp
+                        {{ $total }}
                     </td>
-                    
                 </tr>
                 @endforeach
+                <tr>
+                    <td>Total:</td>
+                    <td class="tw-text-left" colspan="7">{{ $totalSemuaSemester / $jumlah_semester->count() }}</td>
+                </tr>
             </tbody>
         </table>
     </div>
